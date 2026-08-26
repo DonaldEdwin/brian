@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "heroes",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "heroes",
+    "displayName": "Hero",
+    "description": "Homepage hero content"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": { "type": "string" },
+    "subheading": { "type": "text" },
+    "portraitImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "stats": {
+      "type": "component",
+      "component": "shared.stat",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,26 @@
+services:
+  cms:
+    build: ./cms
+    ports:
+      - "1337:1337"
+    volumes:
+      - cms-data:/opt/app/.tmp
+      - cms-uploads:/opt/app/public/uploads
+    env_file:
+      - ./cms/.env
+    environment:
+      NODE_ENV: production
+
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NUXT_STRAPI_URL: http://cms:1337
+      NUXT_PUBLIC_STRAPI_URL: http://localhost:1337
+    depends_on:
+      - cms
+
+volumes:
+  cms-data:
+  cms-uploads:

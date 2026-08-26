@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_shared_focus_areas",
+  "info": {
+    "displayName": "Focus Area",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "text": { "type": "string" }
+  }
+}
