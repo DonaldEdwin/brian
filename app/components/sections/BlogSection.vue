@@ -3,6 +3,7 @@ import type { StrapiImage } from '~/composables/useStrapi'
 
 interface BlogPost {
   documentId: string
+  slug?: string
   title: string
   excerpt?: string
   category?: string
@@ -27,7 +28,12 @@ const { data: posts } = await useStrapiList<BlogPost>('blog-posts', {
       <p class="text-teal font-medium tracking-wide uppercase text-sm mb-3">Blog</p>
       <h2 class="text-3xl font-semibold text-navy mb-10">{{ heading }}</h2>
       <div class="grid gap-6 md:grid-cols-3">
-        <article v-for="post in posts" :key="post.documentId" class="group">
+        <NuxtLink
+          v-for="post in posts"
+          :key="post.documentId"
+          :to="`/blog/${post.slug || post.documentId}`"
+          class="group block"
+        >
           <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-pale-blue">
             <img
               v-if="strapiImageUrl(post.coverImage)"
@@ -42,7 +48,7 @@ const { data: posts } = await useStrapiList<BlogPost>('blog-posts', {
           </div>
           <h3 class="mt-2 font-semibold text-navy">{{ post.title }}</h3>
           <p v-if="post.excerpt" class="mt-1 text-sm text-navy/70">{{ post.excerpt }}</p>
-        </article>
+        </NuxtLink>
       </div>
     </div>
   </section>
