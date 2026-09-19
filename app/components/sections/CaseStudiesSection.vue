@@ -14,10 +14,10 @@ const { data: caseStudies } = await useStrapiList<CaseStudy>('case-studies')
 </script>
 
 <template>
-  <section v-if="caseStudies.length" id="clients" class="bg-pale-blue">
+  <section v-if="caseStudies.length" id="repository" class="bg-pale-blue">
     <div class="mx-auto max-w-6xl px-6 py-20">
-      <p class="text-teal font-medium tracking-wide uppercase text-sm mb-3">Clients</p>
-      <h2 class="text-3xl font-semibold text-navy mb-10">Case Studies</h2>
+      <p class="text-teal font-medium tracking-wide uppercase text-sm mb-3">Repository</p>
+      <h2 class="text-3xl font-semibold text-navy mb-10">Learning Materials</h2>
       <div class="grid gap-6 md:grid-cols-3">
         <div
           v-for="cs in caseStudies"
